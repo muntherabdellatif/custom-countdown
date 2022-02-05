@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Nunito&display=swap');
 
 html {
   box-sizing: border-box;
@@ -10,7 +10,7 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
-
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Video Background */
@@ -18,7 +18,8 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-
+  width: 100vw;
+  height: auto;
 }
 
 video {
@@ -32,7 +33,9 @@ video {
   position: fixed;
   left: 0;
   top: 0;
-
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255,255,255,0.35);
 }
 
 /* Container */
@@ -46,7 +49,7 @@ video {
   z-index: 2;
   display: flex;
   justify-content: center;
-
+  background-color: rgba(255,255,255,0.85);
 }
 
 .input-container {
@@ -79,7 +82,7 @@ input {
   border-radius: 20px;
   background: #fff;
   outline: none;
-
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Button */
@@ -96,7 +99,10 @@ button {
   outline: none;
 }
 
-
+button:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
 
 /* Countdown */
 ul {
@@ -104,7 +110,7 @@ ul {
 }
 
 li {
-
+  display: inline-block;
   font-size: 30px;
   list-style-type: none;
   padding: 10px;
@@ -123,20 +129,53 @@ li span {
   top: 60px;
 }
 
+.complete-title {
+  animation: complete 4s infinite;
+  -webkit-animation: complete 4s infinite;
+}
+
+@keyframes complete {
+  0% {
+    color: rgb(211, 35, 35);
+  }
+
+  25% {
+    color: rgb(214, 214, 29);
+  }
+
+  50% {
+    color: rgb(24, 218, 24);
+    transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+
+  75% {
+    color: rgb(35, 35, 206);
+  }
+
+  100% {
+    color: rgb(201, 34, 201);
+  }
+}
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
   .video-background {
-
+    height: 100vh;
   }
   
   video {
-
+    object-fit: cover;
+    object-position: 70%;
     margin-top: -1px;
   }
 
   .container {
-
+    min-width: unset;
+    width: 95vw;
     min-height: 245px;
     padding: 20px;
     margin: 10px;
@@ -164,10 +203,10 @@ li span {
   }
 
   li {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   li span {
-    font-size: 40px;
+    font-size: 35px;
   }
 }
